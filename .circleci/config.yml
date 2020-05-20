@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run:
           name: update-npm
-          command: "sudo npm install -g npm@5"
+          command: 'sudo npm install -g npm@5'
       - restore_cache:
           key: dependency-cache-{{ checksum "package-lock.json" }}
       - run:
@@ -18,3 +18,23 @@ jobs:
           key: dependency-cache-{{ checksum "package-lock.json" }}
           paths:
             - ./node_modules
+      - run:
+          name: test
+          command: npm run test
+      - run:
+          name: build-project
+          command: npm run generate:gh-pages
+      - run:
+          name: Install and configure dependencies
+          command: |
+            npm install gh-pages --save-dev
+            git config user.email "ts.roberto@gmail.com"
+            git config user.name "maninkari"
+      - run:
+          name: Deploy docs to gh-pages branch
+          command: './node_modules/.bin/gh-pages --dotfiles --message "[skip ci] Updates" -d dist'
+      - store_artifacts:
+          path: test-results.xml
+          prefix: tests
+      - store_test_results:
+          path: test-results.xml
