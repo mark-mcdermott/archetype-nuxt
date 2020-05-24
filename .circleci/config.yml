@@ -27,7 +27,7 @@ jobs:
       - run:
           name: Install and configure dependencies
           command: |
-            yarn gh-pages -D
+            yarn add gh-pages -D
             git config user.email "ts.roberto@gmail.com"
             git config user.name "maninkari"
       - add_ssh_keys:
