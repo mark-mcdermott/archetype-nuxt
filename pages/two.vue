@@ -1,6 +1,5 @@
 <template lang="pug">
   div
-    archetype-menu(menuitem="two")
     h1 two
     p(v-if="$fetchState.pending") Fetching...
     p(v-else-if="$fetchState.error") Error while fetching posts
@@ -9,11 +8,8 @@
 </template>
 
 <script>
-import ArchetypeMenu from '@/components/menu'
 export default {
-  components: {
-    ArchetypeMenu
-  },
+  components: {},
   async fetch() {
     const posts = await fetch(
       `https://jsonplaceholder.typicode.com/posts/`

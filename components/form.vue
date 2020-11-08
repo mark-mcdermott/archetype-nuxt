@@ -1,5 +1,5 @@
 <template lang="pug">
-  h1 form component
+  h2 form component
 </template>
 
 <script>

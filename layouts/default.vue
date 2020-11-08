@@ -1,8 +1,19 @@
 <template>
-  <div>
+  <div class="bg-green h-screen">
+    <archetype-menu />
     <nuxt />
   </div>
 </template>
+
+<script>
+import ArchetypeMenu from '@/components/menu'
+
+export default {
+  components: {
+    ArchetypeMenu
+  }
+}
+</script>
 
 <style>
 html {
