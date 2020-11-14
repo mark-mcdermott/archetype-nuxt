@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-green h-screen">
+  <div class="h-screen">
     <archetype-menu />
     <nuxt />
   </div>
